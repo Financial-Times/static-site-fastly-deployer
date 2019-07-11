@@ -105,7 +105,7 @@ require("yargs")
         //   Include s3o.vcl if s3o is set to true
         const promisify = require('util').promisify;
         const readFile = promisify(require('fs').readFile);
-        const mainVcl = await readFile('./vcl/main.vcl', 'utf-8');
+        const mainVcl = await readFile(path.join(__dirname, './vcl/main.vcl'), 'utf-8');
         if (argv.s3o) {
             try {
                 console.log(`Adding S3O to the service.`);
@@ -113,7 +113,7 @@ require("yargs")
                     name: 's3o.vcl',
                     dynamic: 0,
                     type: 'init',
-                    content: await readFile('./vcl/s3o.vcl', 'utf-8'),
+                    content: await readFile(path.join(__dirname, './vcl/s3o.vcl'), 'utf-8'),
                     priority: 2
                 });
                 console.log(`Successfully added S3O to the service.`);
