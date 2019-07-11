@@ -179,7 +179,7 @@ require("yargs")
         }
 
         console.log('Nice! We have finished creating a service on Fastly and uploaded the website to it. You should be able to view it at one of the registered domains.');
-        console.log(`To update this site, you would run "deploy --service ${serviceID} --snippet ${snippetID} --fastly-api-key your_api_key_here"`);
+        console.log(`To update this site, you would run "ssf deploy --service ${serviceID} --snippet ${snippetID} --fastly-api-key your_api_key_here"`);
     })
     .command('deploy', 'deploy a new version of the website', {
         directory: {
@@ -232,7 +232,7 @@ require("yargs")
         }
 
         console.log('Nice! We have finished updating the website.');
-        console.log(`To update this site, you would run "deploy --service ${argv.service} --snippet ${argv.snippet} --fastly-api-key your_api_key_here"`);
+        console.log(`To update this site, you would run "ssf deploy --service ${argv.service} --snippet ${argv.snippet} --fastly-api-key your_api_key_here"`);
     })
     .help()
     .strict()
