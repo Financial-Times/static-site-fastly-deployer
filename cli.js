@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 "use strict";
 
+const path = require('path');
+
 require("yargs")
     .usage('$0 command')
     .command('create', 'create a new static website on Fastly', {
