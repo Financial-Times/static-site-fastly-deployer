@@ -30,6 +30,15 @@ sub vcl_error {
         // When using vcl_error for a synthetic response, Varnish adds a Retry-After header to the response that isn't correct.
         unset obj.http.Retry-After;
 
+        // Clean up standard response headers.
+        if (!req.http.Fastly-Debug) {
+            unset obj.http.Server;
+            unset obj.http.Via;
+            unset obj.http.X-Cache-Hits;
+            unset obj.http.X-Cache;
+            unset obj.http.X-Served-By;
+        }
+
         return (deliver);
     }
 }
