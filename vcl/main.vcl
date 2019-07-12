@@ -26,6 +26,10 @@ sub vcl_error {
     if (obj.status == 200) {
         set obj.http.content-type = table.lookup(contentType, req.url.path);
         synthetic table.lookup(routes, req.url.path);
+
+        // When using vcl_error for a synthetic response, Varnish adds a Retry-After header to the response that isn't correct.
+        unset obj.http.Retry-After;
+
         return (deliver);
     }
 }
