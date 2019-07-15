@@ -2,6 +2,10 @@
 
 A tool to turn a directory of text-only files into VCL and deploy them to Fastly.
 
+## Inspired by
+
+Kate Flavel wrote the original/first implementation for converting a static website into VCL for deploying onto Fastly -- https://github.com/katef/vcl-static-site-generator
+
 ## Requirements
 
 - NodeJS 10 or higher
